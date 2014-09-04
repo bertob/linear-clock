@@ -12,7 +12,7 @@ var dist12 = 40;
 var leftd = 40;
 var topd = 50;
 var rowd = 80;
-var len = 20;
+var len = 16;
 var thin = 2;
 var thick = 3;
 var important = "#000";
@@ -63,11 +63,11 @@ function drawTime(row, val, dist, disp, color, width) {
 	context.strokeStyle = color;
 	context.stroke();
 
-	context.font = "25pt Helvetica";
+	context.font = "bold 18pt Helvetica";
 	context.fillStyle = color;
-	var offset = 20;
+	var offset = 14;
 	if (val < 10) {
-		offset = 10;
+		offset = 6;
 	}
 	context.fillText(val, (leftd + val * dist + disp) - offset, 40 + rowd * row);
 }
