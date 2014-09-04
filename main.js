@@ -1,6 +1,7 @@
 var canvas = document.getElementById("clock");
 var context = canvas.getContext("2d");
 
+// Constants
 var date;
 var h;
 var m;
@@ -18,14 +19,15 @@ var important = "#000";
 var unimportant = "#bbb";
 var accent = "#fd3301";
 
+// Clear the canvas and redraw it every 1000ms
 window.setInterval(function(){
 	date = new Date();
 	h = date.getHours();
 	m = date.getMinutes();
 	s = date.getSeconds();
-	
+
 	context.clearRect(0, 0, canvas.width, canvas.height);
-		
+
 	drawGrid(0, 24, 1, dist24, unimportant, thin);
 	drawGrid(0, 5, 6, dist24, important, thin);
 
@@ -34,11 +36,13 @@ window.setInterval(function(){
 
 	drawGrid(2, 12, 1, dist12, unimportant, thin);
 	drawGrid(2, 5, 3, dist12, important, thin);
-	
+
 	drawTime(0, h, dist24, m/60 * dist24, accent, thick);
 	drawTime(1, m, dist60, s/60 * dist60, accent, thick);
 	drawTime(2, s, dist60, 0, accent, thick);
 }, 1000);
+
+// Drawing Functions
 
 function drawGrid(row, ticks, gap, dist, color, width) {
 	for (var i = 0; i < ticks; i++) {
